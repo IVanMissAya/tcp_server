@@ -1,0 +1,44 @@
+server:
+  port: 8081
+  ##项目名字配置
+  #servlet :
+  #  context-path : /demo
+  tomcat:
+    max-threads: 128
+    min-spare-threads: 5
+    uri-encoding: UTF-8
+    #shiro 报错修改的地方
+    max-connections: 200000
+    max-http-post-size: 9000000
+spring:
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      maxFileSize: 10MB
+      #shiro 报错修改的地方
+    max-connections: 200000
+    max-http-post-size: 9000000
+    # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: false
+  mvc:   #静态文件
+    static-path-pattern: /static/**
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  jmx:
+    enabled: false
+logging:
+  # 配置输出额日志文件名,可以带路径
+  #  file: out.log
+  # 配置日志存放路径,日志文件名为：spring.log
+  file:
+    # 设置日志文件大小
+    max-size: 10MB
+  level:
+    # root日志以WARN级别输出
+    root: info
+    # 此包下所有class以DEBUG级别输出
+    com.inteagle.tcpserver: warn
